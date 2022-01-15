@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct LocationsMapView: View {
+
+    @State private var region = MKCoordinateRegion(
+                                    center: .init(latitude: 59.3293,
+                                                  longitude: 18.0686),
+                                    span: .init(latitudeDelta: 0.01,
+                                                longitudeDelta: 0.01)
+                                )
     var body: some View {
-        Text("Locations Map")
+        ZStack {
+            Map(coordinateRegion: $region)
+                .ignoresSafeArea()
+        }
     }
 }
 
