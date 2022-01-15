@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		FF78A6AF2791F0B4004DDAE3 /* NearbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6AE2791F0B4004DDAE3 /* NearbyApp.swift */; };
-		FF78A6B12791F0B4004DDAE3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6B02791F0B4004DDAE3 /* ContentView.swift */; };
 		FF78A6B32791F0B7004DDAE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF78A6B22791F0B7004DDAE3 /* Assets.xcassets */; };
 		FF78A6B62791F0B7004DDAE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF78A6B52791F0B7004DDAE3 /* Preview Assets.xcassets */; };
 		FF78A6BF2791F16E004DDAE3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF78A6BE2791F16E004DDAE3 /* CloudKit.framework */; };
 		FF78A6C1279304C3004DDAE3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C0279304C3004DDAE3 /* Color+Extension.swift */; };
+		FF78A6C32793073B004DDAE3 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C22793073B004DDAE3 /* AppTabView.swift */; };
+		FF78A6C527930777004DDAE3 /* LocationsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C427930777004DDAE3 /* LocationsMapView.swift */; };
+		FF78A6C72793078C004DDAE3 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C62793078C004DDAE3 /* LocationsListView.swift */; };
+		FF78A6C92793079F004DDAE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C82793079F004DDAE3 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FF78A6AB2791F0B4004DDAE3 /* Nearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF78A6AE2791F0B4004DDAE3 /* NearbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyApp.swift; sourceTree = "<group>"; };
-		FF78A6B02791F0B4004DDAE3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FF78A6B22791F0B7004DDAE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF78A6B52791F0B7004DDAE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF78A6BC2791F100004DDAE3 /* Nearby.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nearby.entitlements; sourceTree = "<group>"; };
 		FF78A6BE2791F16E004DDAE3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		FF78A6C0279304C3004DDAE3 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		FF78A6C22793073B004DDAE3 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		FF78A6C427930777004DDAE3 /* LocationsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMapView.swift; sourceTree = "<group>"; };
+		FF78A6C62793078C004DDAE3 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
+		FF78A6C82793079F004DDAE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +66,11 @@
 			children = (
 				FF78A6BC2791F100004DDAE3 /* Nearby.entitlements */,
 				FF78A6AE2791F0B4004DDAE3 /* NearbyApp.swift */,
-				FF78A6B02791F0B4004DDAE3 /* ContentView.swift */,
 				FF78A6C0279304C3004DDAE3 /* Color+Extension.swift */,
+				FF78A6C22793073B004DDAE3 /* AppTabView.swift */,
+				FF78A6C427930777004DDAE3 /* LocationsMapView.swift */,
+				FF78A6C62793078C004DDAE3 /* LocationsListView.swift */,
+				FF78A6C82793079F004DDAE3 /* ProfileView.swift */,
 				FF78A6B22791F0B7004DDAE3 /* Assets.xcassets */,
 				FF78A6B42791F0B7004DDAE3 /* Preview Content */,
 			);
@@ -154,8 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF78A6B12791F0B4004DDAE3 /* ContentView.swift in Sources */,
 				FF78A6C1279304C3004DDAE3 /* Color+Extension.swift in Sources */,
+				FF78A6C527930777004DDAE3 /* LocationsMapView.swift in Sources */,
+				FF78A6C72793078C004DDAE3 /* LocationsListView.swift in Sources */,
+				FF78A6C32793073B004DDAE3 /* AppTabView.swift in Sources */,
+				FF78A6C92793079F004DDAE3 /* ProfileView.swift in Sources */,
 				FF78A6AF2791F0B4004DDAE3 /* NearbyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
