@@ -16,6 +16,7 @@
 		FF78A6C527930777004DDAE3 /* LocationsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C427930777004DDAE3 /* LocationsMapView.swift */; };
 		FF78A6C72793078C004DDAE3 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C62793078C004DDAE3 /* LocationsListView.swift */; };
 		FF78A6C92793079F004DDAE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C82793079F004DDAE3 /* ProfileView.swift */; };
+		FF78A6CB2793686A004DDAE3 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6CA2793686A004DDAE3 /* LocationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FF78A6C427930777004DDAE3 /* LocationsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMapView.swift; sourceTree = "<group>"; };
 		FF78A6C62793078C004DDAE3 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
 		FF78A6C82793079F004DDAE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FF78A6CA2793686A004DDAE3 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				FF78A6C427930777004DDAE3 /* LocationsMapView.swift */,
 				FF78A6C62793078C004DDAE3 /* LocationsListView.swift */,
 				FF78A6C82793079F004DDAE3 /* ProfileView.swift */,
+				FF78A6CA2793686A004DDAE3 /* LocationDetailView.swift */,
 				FF78A6B22791F0B7004DDAE3 /* Assets.xcassets */,
 				FF78A6B42791F0B7004DDAE3 /* Preview Content */,
 			);
@@ -166,6 +169,7 @@
 				FF78A6C1279304C3004DDAE3 /* Color+Extension.swift in Sources */,
 				FF78A6C527930777004DDAE3 /* LocationsMapView.swift in Sources */,
 				FF78A6C72793078C004DDAE3 /* LocationsListView.swift in Sources */,
+				FF78A6CB2793686A004DDAE3 /* LocationDetailView.swift in Sources */,
 				FF78A6C32793073B004DDAE3 /* AppTabView.swift in Sources */,
 				FF78A6C92793079F004DDAE3 /* ProfileView.swift in Sources */,
 				FF78A6AF2791F0B4004DDAE3 /* NearbyApp.swift in Sources */,
