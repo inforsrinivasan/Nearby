@@ -16,7 +16,6 @@ struct LocationDetailView: View {
                 ]
 
     var body: some View {
-        NavigationView {
             VStack(spacing: 16) {
                 Image("default-banner-asset")
                     .resizable()
@@ -75,9 +74,11 @@ struct LocationDetailView: View {
                     .bold()
                     .font(.title2)
 
-                LazyVGrid(columns: columns) {
-                    ForEach(0..<9) { index in
-                        FirstNameAvatarView(firstName: "Srini \(index)")
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(0..<9) { index in
+                            FirstNameAvatarView(firstName: "Srini \(index)")
+                        }
                     }
                 }
 
@@ -85,13 +86,14 @@ struct LocationDetailView: View {
             }
             .navigationTitle("Location Name")
             .navigationBarTitleDisplayMode(.inline)
-        }
     }
 }
 
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationDetailView()
+        NavigationView {
+            LocationDetailView()
+        }
     }
 }
 
