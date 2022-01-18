@@ -21,10 +21,8 @@ struct LocationsMapView: View {
             Map(coordinateRegion: $region)
                 .ignoresSafeArea()
             VStack {
-                Image("ddg-map-logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150)
+                LogoView()
+                    .shadow(radius: 10)
                 Spacer()
             }
         }
@@ -34,5 +32,14 @@ struct LocationsMapView: View {
 struct LocationsMapView_Previews: PreviewProvider {
     static var previews: some View {
         LocationsMapView()
+    }
+}
+
+struct LogoView: View {
+    var body: some View {
+        Image("ddg-map-logo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 150)
     }
 }
