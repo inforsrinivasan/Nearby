@@ -17,30 +17,17 @@ struct ProfileView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
-                Color(.secondarySystemBackground)
-                    .frame(height: 160)
-                    .cornerRadius(12)
+                NameBackgroundView()
                 HStack(spacing: 20) {
                     ZStack {
                         AvatarView(size: 84)
-                        Image(systemName: "square.and.pencil")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 14, height: 14)
-                            .foregroundColor(.white)
-                            .offset(y: 30)
+                        EditImage()
                     }
                     VStack(alignment: .leading, spacing: 10) {
                         TextField("First Name", text: $firstName)
-                            .font(.system(size: 32, weight: .bold))
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.75)
-                            .foregroundColor(.primary)
+                            .profileNameStyle()
                         TextField("Last Name", text: $lastName)
-                            .font(.system(size: 32, weight: .bold))
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.75)
-                            .foregroundColor(.primary)
+                            .profileNameStyle()
                         TextField("Company Name", text: $company)
                             .foregroundColor(.secondary)
                     }
@@ -51,20 +38,8 @@ struct ProfileView: View {
 
             VStack {
                 HStack() {
-                    Text("Bio: ")
-                        .font(Font.callout)
-                        .foregroundColor(.secondary)
-                    +
-                    Text("\(100 - bio.count)")
-                        .bold()
-                        .foregroundColor(bio.count <= 100 ? .brandPrimary : Color(.systemPink))
-                    +
-                    Text(" characters remaining")
-                        .font(Font.callout)
-                        .foregroundColor(.secondary)
-
+                    CharactersRemainView(currentCount: bio.count)
                     Spacer()
-
                     Button {
                         // action
                     } label: {
@@ -88,12 +63,7 @@ struct ProfileView: View {
             Button {
                 // action
             } label: {
-                Text("Create profile")
-                    .bold()
-                    .frame(width: 280, height: 44)
-                    .background(Color.brandPrimary)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                NButton(title: "Create Profile")
             }
         }
         .navigationTitle("Profile")
@@ -107,5 +77,24 @@ struct ProfileView_Previews: PreviewProvider {
             ProfileView()
         }
         .environment(\.colorScheme, .dark)
+    }
+}
+
+struct CharactersRemainView: View {
+
+    var currentCount: Int
+
+    var body: some View {
+        Text("Bio: ")
+            .font(Font.callout)
+            .foregroundColor(.secondary)
+        +
+        Text("\(100 - currentCount)")
+            .bold()
+            .foregroundColor(currentCount <= 100 ? .brandPrimary : Color(.systemPink))
+        +
+        Text(" characters remaining")
+            .font(Font.callout)
+            .foregroundColor(.secondary)
     }
 }
