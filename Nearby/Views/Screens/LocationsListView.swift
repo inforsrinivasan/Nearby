@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct LocationsListView: View {
+
+    @State private var locations: [NLocation] = [
+        NLocation(record: MockData.location)
+    ].compactMap { $0 }
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<10) { _ in
-                    NavigationLink(destination: LocationDetailView()) {
-                        LocationsListItem()
+                ForEach(locations, id: \.ckRecordID) { location in
+                    NavigationLink(destination: LocationDetailView(location: location)) {
+                        LocationsListItem(location: location)
                     }
                 }
             }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LocationsListItem: View {
+
+    let location: NLocation
+
     var body: some View {
         HStack {
             Image("default-square-asset")
@@ -18,7 +21,7 @@ struct LocationsListItem: View {
                 .padding(.vertical, 8)
 
             VStack(alignment: .leading) {
-                Text("Location Namesdfsdfsdfsdf dsfsdf")
+                Text(location.name)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .lineLimit(1)
@@ -38,6 +41,6 @@ struct LocationsListItem: View {
 
 struct LocationsListItem_Previews: PreviewProvider {
     static var previews: some View {
-        LocationsListItem()
+        LocationsListItem(location: NLocation(record: MockData.location)!)
     }
 }

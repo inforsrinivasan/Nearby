@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LocationDetailView: View {
 
+    let location: NLocation
+
     let columns = [
                     GridItem(.flexible()),
                     GridItem(.flexible()),
@@ -19,12 +21,12 @@ struct LocationDetailView: View {
             VStack(spacing: 16) {
                 BannerImageView(imageName: "default-banner-asset")
                 HStack {
-                    AddressView(address: "123 Main Street")
+                    AddressView(address: location.address)
                     Spacer()
                 }
                 .padding(.horizontal)
 
-                DescriptionName(text: "This is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a textThis is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a text This is a text")
+                DescriptionName(text: location.description)
 
                 ZStack {
                     Capsule()
@@ -38,7 +40,7 @@ struct LocationDetailView: View {
                                 color: .brandPrimary,
                                 imageName: "location.fill")
                         }
-                        Link(destination: URL(string: "https://www.apple.com")!) {
+                        Link(destination: URL(string: location.websiteURL)!) {
                             LocationActionButton(
                                 color: .brandPrimary,
                                 imageName: "network")
@@ -75,7 +77,7 @@ struct LocationDetailView: View {
 
                 Spacer()
             }
-            .navigationTitle("Location Name")
+            .navigationTitle(location.name)
             .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -83,7 +85,7 @@ struct LocationDetailView: View {
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            LocationDetailView()
+            LocationDetailView(location: NLocation(record: MockData.location)!)
         }
     }
 }
