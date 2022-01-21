@@ -10,21 +10,22 @@ import MapKit
 final class LocationsMapViewModel: ObservableObject {
 
     @Published var alertItem: AlertItem?
-    @Published var locations: [NLocation] = []
     @Published var region = MKCoordinateRegion(
                                     center: .init(latitude: 59.3293,
                                                   longitude: 18.0686),
-                                    span: .init(latitudeDelta: 0.01,
-                                                longitudeDelta: 0.01)
+                                    span: .init(latitudeDelta: 0.07,
+                                                longitudeDelta: 0.07)
                                 )
 
-    func getLocations() {
+    func getLocations(for locationManager: LocationManager) {
         CloudKitManager.getLocations { [self] result in
-            switch result {
-            case .success(let locations):
-                self.locations = locations
-            case .failure(_):
-                alertItem = AlertContext.unableToGetLocations
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let locations):
+                    locationManager.locations = locations
+                case .failure(_):
+                    alertItem = AlertContext.unableToGetLocations
+                }
             }
         }
     }

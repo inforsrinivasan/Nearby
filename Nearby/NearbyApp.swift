@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct NearbyApp: App {
+
+    let locationManager = LocationManager()
     var body: some Scene {
         WindowGroup {
             AppTabView()
+                .environmentObject(locationManager)
         }
     }
 }

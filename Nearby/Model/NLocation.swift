@@ -7,7 +7,7 @@
 
 import CloudKit
 
-struct NLocation {
+struct NLocation: Identifiable {
 
     static let kName = "name"
     static let kDescription = "description"
@@ -19,7 +19,7 @@ struct NLocation {
     static let kLocation = "location"
 
 
-    let ckRecordID: CKRecord.ID
+    let id: CKRecord.ID
     let name: String
     let description: String
     let squareAsset: CKAsset?
@@ -30,7 +30,7 @@ struct NLocation {
     let phoneNumber: String
 
     init?(record: CKRecord) {
-        ckRecordID = record.recordID
+        id = record.recordID
         guard let name = record[NLocation.kName] as? String,
               let description = record[NLocation.kDescription] as? String,
               let address = record[NLocation.kAddress] as? String,

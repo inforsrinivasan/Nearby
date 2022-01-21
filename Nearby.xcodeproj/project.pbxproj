@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF09F0EC279AB90B00B1C891 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09F0EB279AB90B00B1C891 /* LocationManager.swift */; };
 		FF347821279813BA0095B975 /* NLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF347820279813BA0095B975 /* NLocation.swift */; };
 		FF347823279817C20095B975 /* NProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF347822279817C20095B975 /* NProfile.swift */; };
 		FF347825279819940095B975 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF347824279819940095B975 /* MockData.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF09F0EB279AB90B00B1C891 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FF347820279813BA0095B975 /* NLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLocation.swift; sourceTree = "<group>"; };
 		FF347822279817C20095B975 /* NProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NProfile.swift; sourceTree = "<group>"; };
 		FF347824279819940095B975 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -70,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF09F0EA279AB8FC00B1C891 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FFE234152799947A0099A23F /* CloudKitManager.swift */,
+				FF09F0EB279AB90B00B1C891 /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		FF34781F279813AA0095B975 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +191,7 @@
 		FFE23414279994490099A23F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				FFE234152799947A0099A23F /* CloudKitManager.swift */,
+				FF09F0EA279AB8FC00B1C891 /* Managers */,
 				FFE23417279995A20099A23F /* Constants.swift */,
 				FFE2341927999A200099A23F /* AlertItem.swift */,
 			);
@@ -278,6 +289,7 @@
 				FF78A6CB2793686A004DDAE3 /* LocationDetailView.swift in Sources */,
 				FF347821279813BA0095B975 /* NLocation.swift in Sources */,
 				FF46BEFD2796DBC600EA907A /* NButton.swift in Sources */,
+				FF09F0EC279AB90B00B1C891 /* LocationManager.swift in Sources */,
 				FFE2341D27999DFD0099A23F /* LocationsMapViewModel.swift in Sources */,
 				FFE234162799947A0099A23F /* CloudKitManager.swift in Sources */,
 				FF78A6C32793073B004DDAE3 /* AppTabView.swift in Sources */,
