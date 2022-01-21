@@ -9,13 +9,12 @@ import SwiftUI
 
 struct LocationsListView: View {
 
-    @State private var locations: [NLocation] = [
-        NLocation(record: MockData.location)
-    ].compactMap { $0 }
+    @EnvironmentObject private var locationManager: LocationManager
+
     var body: some View {
         NavigationView {
             List {
-                ForEach(locations) { location in
+                ForEach(locationManager.locations) { location in
                     NavigationLink(destination: LocationDetailView(location: location)) {
                         LocationsListItem(location: location)
                     }

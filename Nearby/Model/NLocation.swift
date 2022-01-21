@@ -6,6 +6,7 @@
 //
 
 import CloudKit
+import UIKit
 
 struct NLocation: Identifiable {
 
@@ -47,5 +48,15 @@ struct NLocation: Identifiable {
         self.websiteURL = websiteURL
         self.phoneNumber = phoneNumber
         self.location = location
+    }
+
+    func createSquareImage() -> UIImage {
+        guard let asset = squareAsset else { return PlaceholderImages.square }
+        return asset.toUIImage(in: .square)
+    }
+
+    func createBannerImage() -> UIImage {
+        guard let asset = bannerAsset else { return PlaceholderImages.banner }
+        return asset.toUIImage(in: .banner)
     }
 }
