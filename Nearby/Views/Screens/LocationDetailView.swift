@@ -70,7 +70,7 @@ struct LocationDetailView: View {
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach(0..<9) { index in
-                            FirstNameAvatarView(firstName: "Srini \(index)")
+                            FirstNameAvatarView(firstName: "Srini \(index)", image: PlaceholderImages.avatar)
                         }
                     }
                 }
@@ -113,10 +113,11 @@ struct LocationActionButton: View {
 struct FirstNameAvatarView: View {
 
     let firstName: String
+    let image: UIImage
 
     var body: some View {
         VStack {
-            AvatarView(size: 64)
+            AvatarView(image: image, size: 64)
             Text(firstName)
                 .bold()
                 .lineLimit(1)

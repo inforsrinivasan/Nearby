@@ -28,11 +28,11 @@ struct LocationsListItem: View {
                     .minimumScaleFactor(0.75)
 
                 HStack {
-                    AvatarView(size: 35)
-                    AvatarView(size: 35)
-                    AvatarView(size: 35)
-                    AvatarView(size: 35)
-                    AvatarView(size: 35)
+                    AvatarView(image: PlaceholderImages.avatar, size: 35)
+                    AvatarView(image: PlaceholderImages.avatar, size: 35)
+                    AvatarView(image: PlaceholderImages.avatar, size: 35)
+                    AvatarView(image: PlaceholderImages.avatar, size: 35)
+                    AvatarView(image: PlaceholderImages.avatar, size: 35)
                 }
             }
             .padding(.leading)

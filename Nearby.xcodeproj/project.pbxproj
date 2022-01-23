@@ -20,6 +20,7 @@
 		FF700000279C59D20021488D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70FFFF279C59D20021488D /* OnboardingView.swift */; };
 		FF700002279C5A0F0021488D /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700001279C5A0F0021488D /* LogoView.swift */; };
 		FF700004279C63F10021488D /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700003279C63F10021488D /* XDismissButton.swift */; };
+		FF700007279D6BFD0021488D /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700006279D6BFC0021488D /* PhotoPicker.swift */; };
 		FF78A6AF2791F0B4004DDAE3 /* NearbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6AE2791F0B4004DDAE3 /* NearbyApp.swift */; };
 		FF78A6B32791F0B7004DDAE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF78A6B22791F0B7004DDAE3 /* Assets.xcassets */; };
 		FF78A6B62791F0B7004DDAE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF78A6B52791F0B7004DDAE3 /* Preview Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		FF46BEFC2796DBC600EA907A /* NButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NButton.swift; sourceTree = "<group>"; };
 		FF700001279C5A0F0021488D /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		FF700003279C63F10021488D /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		FF700006279D6BFC0021488D /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		FF70FFFF279C59D20021488D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		FF78A6AB2791F0B4004DDAE3 /* Nearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF78A6AE2791F0B4004DDAE3 /* NearbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyApp.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				FF78A6C62793078C004DDAE3 /* LocationsListView.swift */,
 				FF78A6CA2793686A004DDAE3 /* LocationDetailView.swift */,
 				FF70FFFF279C59D20021488D /* OnboardingView.swift */,
+				FF78A6C82793079F004DDAE3 /* ProfileView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -142,13 +145,21 @@
 		FF46BF022796E96B00EA907A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				FF700005279D6BE40021488D /* UIKitComponents */,
 				FF46BEF62796D78100EA907A /* AvatarView.swift */,
 				FF46BEFC2796DBC600EA907A /* NButton.swift */,
 				FF700003279C63F10021488D /* XDismissButton.swift */,
-				FF78A6C82793079F004DDAE3 /* ProfileView.swift */,
 				FF700001279C5A0F0021488D /* LogoView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FF700005279D6BE40021488D /* UIKitComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FF700006279D6BFC0021488D /* PhotoPicker.swift */,
+			);
+			path = UIKitComponents;
 			sourceTree = "<group>";
 		};
 		FF78A6A22791F0B4004DDAE3 = {
@@ -312,6 +323,7 @@
 				FF46BEF72796D78100EA907A /* AvatarView.swift in Sources */,
 				FF78A6AF2791F0B4004DDAE3 /* NearbyApp.swift in Sources */,
 				FF700000279C59D20021488D /* OnboardingView.swift in Sources */,
+				FF700007279D6BFD0021488D /* PhotoPicker.swift in Sources */,
 				FF700004279C63F10021488D /* XDismissButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
