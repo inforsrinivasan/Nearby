@@ -9,6 +9,7 @@ import MapKit
 
 final class LocationsMapViewModel: NSObject, ObservableObject {
 
+    @Published var isShowingOnboardingView: Bool = false
     @Published var alertItem: AlertItem?
     @Published var region = MKCoordinateRegion(
                                     center: .init(latitude: 59.3293,
@@ -18,6 +19,20 @@ final class LocationsMapViewModel: NSObject, ObservableObject {
                                 )
 
     var deviceLocationManager: CLLocationManager?
+    let kHasSeenOnboardingView = "hasSeenOnboardingView"
+
+    var hasSeenOnboardingView: Bool {
+        return UserDefaults.standard.bool(forKey: kHasSeenOnboardingView) // defaults to false if not available
+    }
+
+    func runStartupChecks() {
+        if !hasSeenOnboardingView {
+            isShowingOnboardingView = true
+            UserDefaults.standard.set(true, forKey: kHasSeenOnboardingView)
+        } else {
+            checkIfLocationServicesIsEnabled()
+        }
+    }
 
     func checkIfLocationServicesIsEnabled() {
         if CLLocationManager.locationServicesEnabled() {

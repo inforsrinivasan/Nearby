@@ -17,6 +17,9 @@
 		FF46BEF92796D9E600EA907A /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46BEF82796D9E600EA907A /* CustomModifiers.swift */; };
 		FF46BEFB2796DA1A00EA907A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46BEFA2796DA1A00EA907A /* View+Extension.swift */; };
 		FF46BEFD2796DBC600EA907A /* NButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46BEFC2796DBC600EA907A /* NButton.swift */; };
+		FF700000279C59D20021488D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70FFFF279C59D20021488D /* OnboardingView.swift */; };
+		FF700002279C5A0F0021488D /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700001279C5A0F0021488D /* LogoView.swift */; };
+		FF700004279C63F10021488D /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700003279C63F10021488D /* XDismissButton.swift */; };
 		FF78A6AF2791F0B4004DDAE3 /* NearbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6AE2791F0B4004DDAE3 /* NearbyApp.swift */; };
 		FF78A6B32791F0B7004DDAE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF78A6B22791F0B7004DDAE3 /* Assets.xcassets */; };
 		FF78A6B62791F0B7004DDAE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF78A6B52791F0B7004DDAE3 /* Preview Assets.xcassets */; };
@@ -44,6 +47,9 @@
 		FF46BEF82796D9E600EA907A /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		FF46BEFA2796DA1A00EA907A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		FF46BEFC2796DBC600EA907A /* NButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NButton.swift; sourceTree = "<group>"; };
+		FF700001279C5A0F0021488D /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		FF700003279C63F10021488D /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		FF70FFFF279C59D20021488D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		FF78A6AB2791F0B4004DDAE3 /* Nearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF78A6AE2791F0B4004DDAE3 /* NearbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyApp.swift; sourceTree = "<group>"; };
 		FF78A6B22791F0B7004DDAE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 				FFE2341B27999DD70099A23F /* LocationsMapView */,
 				FF78A6C62793078C004DDAE3 /* LocationsListView.swift */,
 				FF78A6CA2793686A004DDAE3 /* LocationDetailView.swift */,
+				FF70FFFF279C59D20021488D /* OnboardingView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -137,7 +144,9 @@
 			children = (
 				FF46BEF62796D78100EA907A /* AvatarView.swift */,
 				FF46BEFC2796DBC600EA907A /* NButton.swift */,
+				FF700003279C63F10021488D /* XDismissButton.swift */,
 				FF78A6C82793079F004DDAE3 /* ProfileView.swift */,
+				FF700001279C5A0F0021488D /* LogoView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 				FF09F0EE279AC93E00B1C891 /* CKAsset+Extension.swift in Sources */,
 				FFE23418279995A20099A23F /* Constants.swift in Sources */,
 				FF46BEF52796D6E000EA907A /* LocationsListItem.swift in Sources */,
+				FF700002279C5A0F0021488D /* LogoView.swift in Sources */,
 				FF347825279819940095B975 /* MockData.swift in Sources */,
 				FF78A6C527930777004DDAE3 /* LocationsMapView.swift in Sources */,
 				FFE2341A27999A200099A23F /* AlertItem.swift in Sources */,
@@ -301,6 +311,8 @@
 				FF78A6C92793079F004DDAE3 /* ProfileView.swift in Sources */,
 				FF46BEF72796D78100EA907A /* AvatarView.swift in Sources */,
 				FF78A6AF2791F0B4004DDAE3 /* NearbyApp.swift in Sources */,
+				FF700000279C59D20021488D /* OnboardingView.swift in Sources */,
+				FF700004279C63F10021488D /* XDismissButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

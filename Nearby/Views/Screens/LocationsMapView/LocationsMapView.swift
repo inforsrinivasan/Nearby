@@ -25,10 +25,16 @@ struct LocationsMapView: View {
                 .accentColor(.brandSecondary)
                 .ignoresSafeArea()
             VStack {
-                LogoView()
+                LogoView(frameWidth: 125)
                     .shadow(radius: 10)
                 Spacer()
             }
+        }
+        .sheet(isPresented: $viewModel.isShowingOnboardingView,
+               onDismiss: {
+            viewModel.checkIfLocationServicesIsEnabled()
+        }) {
+            OnboardingView(isShowingOnboardingView: $viewModel.isShowingOnboardingView)
         }
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title,
@@ -36,7 +42,7 @@ struct LocationsMapView: View {
                   dismissButton: alertItem.dismissButton)
         })
         .onAppear {
-            viewModel.checkIfLocationServicesIsEnabled()
+            viewModel.runStartupChecks()
             if locationManager.locations.isEmpty {
                 viewModel.getLocations(for: locationManager)
             }
@@ -47,14 +53,5 @@ struct LocationsMapView: View {
 struct LocationsMapView_Previews: PreviewProvider {
     static var previews: some View {
         LocationsMapView()
-    }
-}
-
-struct LogoView: View {
-    var body: some View {
-        Image("ddg-map-logo")
-            .resizable()
-            .scaledToFit()
-            .frame(width: 150)
     }
 }
