@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ProfileView: View {
 
-    @State private var firstName = "Srinivasan"
-    @State private var lastName = "Rajendran"
-    @State private var company = "iOS Developer, Truecaller"
+    @State private var firstName = ""
+    @State private var lastName = ""
+    @State private var company = ""
     @State private var bio = ""
     @State private var avatar = PlaceholderImages.avatar
     @State private var isShowingPhotoPicker: Bool = false
+    @State private var alertItem: AlertItem?
 
     var body: some View {
         VStack {
@@ -66,17 +67,50 @@ struct ProfileView: View {
             Spacer()
 
             Button {
-                // action
+                createProfile()
             } label: {
                 NButton(title: "Create Profile")
             }
+            .padding(.bottom)
         }
         .navigationTitle("Profile")
+        .toolbar {
+            Button {
+                dismissKeyboard()
+            } label: {
+                Image(systemName: "keyboard.chevron.compact.down")
+            }
+        }
+        .alert(item: $alertItem, content: { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
+        })
         .sheet(isPresented: $isShowingPhotoPicker,
                onDismiss: { }) {
             PhotoPicker(image: $avatar)
         }
         .padding()
+    }
+
+    func isValidProfile() -> Bool {
+
+        guard !firstName.isEmpty,
+              !lastName.isEmpty,
+              !bio.isEmpty,
+              !bio.isEmpty,
+              avatar != PlaceholderImages.avatar,
+              bio.count <= 100 else { return false }
+
+        return true
+    }
+
+    func createProfile() {
+        guard isValidProfile() else {
+            alertItem = AlertContext.invalidProfile
+            return
+        }
+        // send to cloud kit
     }
 }
 
