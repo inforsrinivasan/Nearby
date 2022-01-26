@@ -6,6 +6,7 @@
 //
 
 import CloudKit
+import UIKit
 
 struct NProfile {
 
@@ -39,6 +40,10 @@ struct NProfile {
         self.avatar = avatar
         self.companyName = companyName
         self.bio = bio
+    }
+
+    func createAvatarImage() -> UIImage {
+        return avatar.toUIImage(in: .square)
     }
 }
 

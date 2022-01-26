@@ -68,7 +68,7 @@ struct ProfileView: View {
             Spacer()
 
             Button {
-                createProfile()
+                // createProfile()
             } label: {
                 NButton(title: "Create Profile")
             }
@@ -82,6 +82,7 @@ struct ProfileView: View {
                 Image(systemName: "keyboard.chevron.compact.down")
             }
         }
+        .onAppear { getProfile() }
         .alert(item: $alertItem, content: { alertItem in
             Alert(title: alertItem.title,
                   message: alertItem.message,
@@ -153,6 +154,45 @@ struct ProfileView: View {
             }
 
         }
+    }
+
+    func getProfile() {
+        CKContainer.default().fetchUserRecordID { recordID, error in
+            guard let recordID = recordID,
+                  error == nil else {
+                      print(error!.localizedDescription)
+                      return
+                  }
+            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { userRecord, error in
+                guard let userRecord = userRecord,
+                      error == nil else {
+                          print(error!.localizedDescription)
+                          return
+                      }
+
+                let profileReference = userRecord["userProfile"] as! CKRecord.Reference
+                let profileRecordID = profileReference.recordID
+
+                CKContainer.default().publicCloudDatabase.fetch(withRecordID: profileRecordID) { profileRecord, error in
+                    guard let profileRecord = profileRecord,
+                          error == nil else {
+                              print(error!.localizedDescription)
+                              return
+                          }
+                    DispatchQueue.main.async {
+                        guard let profile = NProfile(record: profileRecord) else { return }
+
+                        firstName   = profile.firstName
+                        lastName    = profile.lastName
+                        company     = profile.companyName
+                        bio         = profile.bio
+                        avatar      = profile.createAvatarImage()
+                    }
+                }
+            }
+        }
+
+        // Fetch the Profile Record from USer Record ID
     }
 }
 
