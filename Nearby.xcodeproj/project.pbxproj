@@ -32,6 +32,7 @@
 		FF78A6C92793079F004DDAE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6C82793079F004DDAE3 /* ProfileView.swift */; };
 		FF78A6CB2793686A004DDAE3 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78A6CA2793686A004DDAE3 /* LocationDetailView.swift */; };
 		FFD06950279F279A003AFE2B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0694F279F279A003AFE2B /* UIImage+Extension.swift */; };
+		FFD0695D27A1D123003AFE2B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0695C27A1D123003AFE2B /* ProfileViewModel.swift */; };
 		FFE234162799947A0099A23F /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE234152799947A0099A23F /* CloudKitManager.swift */; };
 		FFE23418279995A20099A23F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE23417279995A20099A23F /* Constants.swift */; };
 		FFE2341A27999A200099A23F /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2341927999A200099A23F /* AlertItem.swift */; };
@@ -66,6 +67,7 @@
 		FF78A6C82793079F004DDAE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FF78A6CA2793686A004DDAE3 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		FFD0694F279F279A003AFE2B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		FFD0695C27A1D123003AFE2B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FFE234152799947A0099A23F /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		FFE23417279995A20099A23F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFE2341927999A200099A23F /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -132,7 +134,7 @@
 				FF78A6C62793078C004DDAE3 /* LocationsListView.swift */,
 				FF78A6CA2793686A004DDAE3 /* LocationDetailView.swift */,
 				FF70FFFF279C59D20021488D /* OnboardingView.swift */,
-				FF78A6C82793079F004DDAE3 /* ProfileView.swift */,
+				FFD0695B27A1D10E003AFE2B /* ProfileView */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -212,6 +214,15 @@
 				FF78A6BE2791F16E004DDAE3 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFD0695B27A1D10E003AFE2B /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				FF78A6C82793079F004DDAE3 /* ProfileView.swift */,
+				FFD0695C27A1D123003AFE2B /* ProfileViewModel.swift */,
+			);
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		FFE23414279994490099A23F /* Utilities */ = {
@@ -306,6 +317,7 @@
 				FF78A6C1279304C3004DDAE3 /* Color+Extension.swift in Sources */,
 				FF46BEF92796D9E600EA907A /* CustomModifiers.swift in Sources */,
 				FF347823279817C20095B975 /* NProfile.swift in Sources */,
+				FFD0695D27A1D123003AFE2B /* ProfileViewModel.swift in Sources */,
 				FF09F0EE279AC93E00B1C891 /* CKAsset+Extension.swift in Sources */,
 				FFE23418279995A20099A23F /* Constants.swift in Sources */,
 				FFD06950279F279A003AFE2B /* UIImage+Extension.swift in Sources */,
