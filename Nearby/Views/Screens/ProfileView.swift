@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ProfileView: View {
 
@@ -110,7 +111,48 @@ struct ProfileView: View {
             alertItem = AlertContext.invalidProfile
             return
         }
-        // send to cloud kit
+
+        // crerate CKRecord from the profile view
+        let profileRecord = CKRecord(recordType: RecordType.profile)
+        profileRecord[NProfile.kFirstName] = firstName
+        profileRecord[NProfile.kLastName] = lastName
+        profileRecord[NProfile.kBio] = bio
+        profileRecord[NProfile.kCompanyName] = company
+        profileRecord[NProfile.kAvatar] = avatar.convertToCKAsset()
+
+        // get our User record ID from the container
+        CKContainer.default().fetchUserRecordID { recordID, error in
+            guard let recordID = recordID,
+                  error == nil else {
+                      print(error!.localizedDescription)
+                      return
+                  }
+
+            // get user record from the public database
+            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { record, error in
+                guard let userRecord = record,
+                      error == nil else {
+                          print(error!.localizedDescription)
+                          return
+                      }
+                // create reference on userrecord to NProfile we created
+                userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
+
+                // create a CKOperation to save our user and profile records
+
+                let saveOperation = CKModifyRecordsOperation(recordsToSave: [userRecord, profileRecord])
+                saveOperation.modifyRecordsResultBlock = { result in
+                    switch result {
+                    case .success:
+                        print("Success")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+                CKContainer.default().publicCloudDatabase.add(saveOperation)
+            }
+
+        }
     }
 }
 
