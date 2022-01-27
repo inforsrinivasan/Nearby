@@ -62,7 +62,7 @@ struct ProfileView: View {
             Spacer()
 
             Button {
-                // createProfile()
+                viewModel.createProfile()
             } label: {
                 NButton(title: "Create Profile")
             }

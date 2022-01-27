@@ -38,67 +38,42 @@ final class ProfileViewModel: ObservableObject {
 
         let profileRecord = createProfileRecord()
 
-        CKContainer.default().fetchUserRecordID { recordID, error in
-            guard let recordID = recordID,
-                  error == nil else {
-                      print(error!.localizedDescription)
-                      return
-                  }
-
-            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { record, error in
-                guard let userRecord = record,
-                      error == nil else {
-                          print(error!.localizedDescription)
-                          return
-                      }
-                userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
-
-                let saveOperation = CKModifyRecordsOperation(recordsToSave: [userRecord, profileRecord])
-                saveOperation.modifyRecordsResultBlock = { result in
-                    switch result {
-                    case .success:
-                        print("Success")
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                }
-                CKContainer.default().publicCloudDatabase.add(saveOperation)
+        guard let userRecord = CloudKitManager.shared.userRecord else {
+            return
+        }
+        userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
+        CloudKitManager.shared.batchSave(records: [userRecord, profileRecord]) { result  in
+            switch result {
+            case .success:
+                // show alert
+                break
+            case .failure(let error):
+                // show alert
+                print(error.localizedDescription)
             }
         }
     }
 
     func getProfile() {
-        CKContainer.default().fetchUserRecordID { recordID, error in
-            guard let recordID = recordID,
-                  error == nil else {
-                      print(error!.localizedDescription)
-                      return
-                  }
-            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { userRecord, error in
-                guard let userRecord = userRecord,
-                      error == nil else {
-                          print(error!.localizedDescription)
-                          return
-                      }
-
-                let profileReference = userRecord["userProfile"] as! CKRecord.Reference
-                let profileRecordID = profileReference.recordID
-
-                CKContainer.default().publicCloudDatabase.fetch(withRecordID: profileRecordID) { profileRecord, error in
-                    guard let profileRecord = profileRecord,
-                          error == nil else {
-                              print(error!.localizedDescription)
-                              return
-                          }
-                    DispatchQueue.main.async { [self] in
-                        guard let profile = NProfile(record: profileRecord) else { return }
-
-                        firstName   = profile.firstName
-                        lastName    = profile.lastName
-                        company     = profile.companyName
-                        bio         = profile.bio
-                        avatar      = profile.createAvatarImage()
-                    }
+        guard let userRecord = CloudKitManager.shared.userRecord,
+              let profileReference = userRecord["userProfile"] as? CKRecord.Reference else {
+                  // show alert
+                  return
+              }
+        let profileRecordID = profileReference.recordID
+        CloudKitManager.shared.fetchRecord(with: profileRecordID) { result in
+            DispatchQueue.main.async { [self] in
+                switch result {
+                case .success(let record):
+                    guard let profile = NProfile(record: record) else { return }
+                    firstName = profile.firstName
+                    lastName = profile.lastName
+                    company = profile.companyName
+                    bio = profile.bio
+                    avatar = profile.createAvatarImage()
+                case .failure(_):
+                    // show alert
+                    break
                 }
             }
         }
