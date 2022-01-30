@@ -13,60 +13,65 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
 
     var body: some View {
-        VStack {
-            ZStack(alignment: .top) {
-                NameBackgroundView()
-                HStack(spacing: 20) {
-                    ZStack {
-                        AvatarView(image: viewModel.avatar, size: 84)
-                        EditImage()
-                    }
-                    .onTapGesture {
-                        viewModel.isShowingPhotoPicker = true
-                    }
-                    VStack(alignment: .leading, spacing: 10) {
-                        TextField("First Name", text: $viewModel.firstName)
-                            .profileNameStyle()
-                        TextField("Last Name", text: $viewModel.lastName)
-                            .profileNameStyle()
-                        TextField("Company Name", text: $viewModel.company)
-                            .foregroundColor(.secondary)
-                    }
-                    .foregroundColor(.white)
-                }
-                .padding()
-            }
-
+        ZStack {
             VStack {
-                HStack() {
-                    CharactersRemainView(currentCount: viewModel.bio.count)
-                    Spacer()
-                    Button {
-                        // action
-                    } label: {
-                        Label("Check Out",
-                              systemImage: "location.fill")
-                            .frame(width: 120, height: 40)
-                            .background(Color(.systemPink))
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
+                ZStack(alignment: .top) {
+                    NameBackgroundView()
+                    HStack(spacing: 20) {
+                        ZStack {
+                            AvatarView(image: viewModel.avatar, size: 84)
+                            EditImage()
+                        }
+                        .onTapGesture {
+                            viewModel.isShowingPhotoPicker = true
+                        }
+                        VStack(alignment: .leading, spacing: 10) {
+                            TextField("First Name", text: $viewModel.firstName)
+                                .profileNameStyle()
+                            TextField("Last Name", text: $viewModel.lastName)
+                                .profileNameStyle()
+                            TextField("Company Name", text: $viewModel.company)
+                                .foregroundColor(.secondary)
+                        }
+                        .foregroundColor(.white)
                     }
-                }
-                TextEditor(text: $viewModel.bio)
-                    .frame(height: 100)
                     .padding()
-                    .overlay(RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.secondary, lineWidth: 1))
-            }
+                }
 
-            Spacer()
+                VStack {
+                    HStack() {
+                        CharactersRemainView(currentCount: viewModel.bio.count)
+                        Spacer()
+                        Button {
+                            // action
+                        } label: {
+                            Label("Check Out",
+                                  systemImage: "location.fill")
+                                .frame(width: 120, height: 40)
+                                .background(Color(.systemPink))
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                        }
+                    }
+                    TextEditor(text: $viewModel.bio)
+                        .frame(height: 100)
+                        .padding()
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.secondary, lineWidth: 1))
+                }
 
-            Button {
-                viewModel.createProfile()
-            } label: {
-                NButton(title: "Create Profile")
+                Spacer()
+
+                Button {
+                    viewModel.createProfile()
+                } label: {
+                    NButton(title: "Create Profile")
+                }
+                .padding(.bottom)
             }
-            .padding(.bottom)
+            .padding()
+
+            if viewModel.isLoading { LoadingView() }
         }
         .navigationTitle("Profile")
         .toolbar {
@@ -86,7 +91,6 @@ struct ProfileView: View {
                onDismiss: { }) {
             PhotoPicker(image: $viewModel.avatar)
         }
-        .padding()
     }
 }
 
