@@ -63,9 +63,9 @@ struct ProfileView: View {
                 Spacer()
 
                 Button {
-                    viewModel.createProfile()
+                    viewModel.profileContext == .create ? viewModel.createProfile() : viewModel.updateProfile()
                 } label: {
-                    NButton(title: "Create Profile")
+                    NButton(title: viewModel.profileContext == .create ? "Create Profile" : "Update Profile")
                 }
                 .padding(.bottom)
             }

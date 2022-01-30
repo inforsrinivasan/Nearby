@@ -8,6 +8,11 @@
 import Foundation
 import CloudKit
 
+enum ProfileContext {
+    case create
+    case update
+}
+
 final class ProfileViewModel: ObservableObject {
 
     @Published var firstName = ""
@@ -19,7 +24,10 @@ final class ProfileViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isLoading: Bool = false
 
-    private var profileRecord: CKRecord?
+    var profileContext: ProfileContext = .create
+    private var existingProfileRecord: CKRecord? {
+        didSet { profileContext = .update }
+    }
 
     func isValidProfile() -> Bool {
 
@@ -53,7 +61,7 @@ final class ProfileViewModel: ObservableObject {
                 switch result {
                 case .success:
                     alertItem = AlertContext.createProfileSuccess
-                    self.profileRecord = profileRecord
+                    existingProfileRecord = profileRecord
                     break
                 case .failure(let error):
                     alertItem = AlertContext.createProfileFailure
@@ -82,7 +90,7 @@ final class ProfileViewModel: ObservableObject {
                     bio = profile.bio
                     avatar = profile.createAvatarImage()
 
-                    profileRecord = record
+                    existingProfileRecord = record
                 case .failure(_):
                     alertItem = AlertContext.unableToRetrieveProfile
                     break
@@ -97,7 +105,7 @@ final class ProfileViewModel: ObservableObject {
             return
         }
 
-        guard let profileRecord = self.profileRecord else {
+        guard let profileRecord = existingProfileRecord else {
             alertItem = AlertContext.unableToRetrieveProfile
             return
         }
@@ -114,9 +122,10 @@ final class ProfileViewModel: ObservableObject {
                 hideLoadingView()
                 switch result {
                 case .success(let record):
-                    self.profileRecord = record
+                    existingProfileRecord = record
                     alertItem = AlertContext.updateProfileSuccess
-                case .failure(_):
+                case .failure(let error):
+                    print(error.localizedDescription)
                     alertItem = AlertContext.updateProfileFailed
                 }
             }
