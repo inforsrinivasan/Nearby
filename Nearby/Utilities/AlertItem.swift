@@ -38,5 +38,21 @@ struct AlertContext {
     static let invalidProfile = AlertItem(title: Text("Invalid Profile"),
                                             message: Text("All fields are required. Please try again"),
                                             dismissButton: .default(Text("Ok")))
+
+    static let noUserRecord = AlertItem(title: Text("No User Record"),
+                                            message: Text("You must login to iCLoud to use Nearby's profile. Please log in from your phone's settings screen"),
+                                            dismissButton: .default(Text("Ok")))
+
+    static let createProfileSuccess = AlertItem(title: Text("Profile created successfully!!"),
+                                            message: Text("Your profile has been created successfully"),
+                                            dismissButton: .default(Text("Ok")))
+
+    static let createProfileFailure = AlertItem(title: Text("Failed to create profile"),
+                                            message: Text("Something went wrong. Unable to create profile. Please try again"),
+                                            dismissButton: .default(Text("Ok")))
+
+    static let unableToRetrieveProfile = AlertItem(title: Text("Unable to retrieve profile"),
+                                            message: Text("We were unable to retrieve profile. Please check your internet connection and try again."),
+                                            dismissButton: .default(Text("Ok")))
     
 }
