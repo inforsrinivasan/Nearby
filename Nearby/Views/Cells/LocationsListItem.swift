@@ -26,6 +26,7 @@ struct LocationsListItem: View {
                     .fontWeight(.semibold)
                     .lineLimit(1)
                     .minimumScaleFactor(0.75)
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
                 HStack {
                     AvatarView(image: PlaceholderImages.avatar, size: 35)
