@@ -23,7 +23,7 @@ struct LocationsMapView: View {
                     tint: .brandPrimary)
             }
                 .accentColor(.brandSecondary)
-                .ignoresSafeArea()
+                .edgesIgnoringSafeArea(.top)
             VStack {
                 LogoView(frameWidth: 125)
                     .shadow(radius: 10)
