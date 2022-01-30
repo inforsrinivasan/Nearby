@@ -19,6 +19,8 @@ final class ProfileViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isLoading: Bool = false
 
+    private var profileRecord: CKRecord?
+
     func isValidProfile() -> Bool {
 
         guard !firstName.isEmpty,
@@ -51,6 +53,7 @@ final class ProfileViewModel: ObservableObject {
                 switch result {
                 case .success:
                     alertItem = AlertContext.createProfileSuccess
+                    self.profileRecord = profileRecord
                     break
                 case .failure(let error):
                     alertItem = AlertContext.createProfileFailure
@@ -78,12 +81,47 @@ final class ProfileViewModel: ObservableObject {
                     company = profile.companyName
                     bio = profile.bio
                     avatar = profile.createAvatarImage()
+
+                    profileRecord = record
                 case .failure(_):
                     alertItem = AlertContext.unableToRetrieveProfile
                     break
                 }
             }
         }
+    }
+
+    func updateProfile() {
+        guard isValidProfile() else {
+            alertItem = AlertContext.invalidProfile
+            return
+        }
+
+        guard let profileRecord = self.profileRecord else {
+            alertItem = AlertContext.unableToRetrieveProfile
+            return
+        }
+
+        profileRecord[NProfile.kFirstName] = firstName
+        profileRecord[NProfile.kLastName] = lastName
+        profileRecord[NProfile.kBio] = bio
+        profileRecord[NProfile.kCompanyName] = company
+        profileRecord[NProfile.kAvatar] = avatar.convertToCKAsset()
+
+        showLoadingView()
+        CloudKitManager.shared.save(record: profileRecord) { result in
+            DispatchQueue.main.async { [self] in
+                hideLoadingView()
+                switch result {
+                case .success(let record):
+                    self.profileRecord = record
+                    alertItem = AlertContext.updateProfileSuccess
+                case .failure(_):
+                    alertItem = AlertContext.updateProfileFailed
+                }
+            }
+        }
+
     }
 
     private func createProfileRecord() -> CKRecord {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FF09F0EC279AB90B00B1C891 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09F0EB279AB90B00B1C891 /* LocationManager.swift */; };
 		FF09F0EE279AC93E00B1C891 /* CKAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09F0ED279AC93E00B1C891 /* CKAsset+Extension.swift */; };
+		FF263FE027A6A69E003C4510 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF263FDF27A6A69E003C4510 /* LoadingView.swift */; };
 		FF347821279813BA0095B975 /* NLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF347820279813BA0095B975 /* NLocation.swift */; };
 		FF347823279817C20095B975 /* NProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF347822279817C20095B975 /* NProfile.swift */; };
 		FF347825279819940095B975 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF347824279819940095B975 /* MockData.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		FF09F0EB279AB90B00B1C891 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FF09F0ED279AC93E00B1C891 /* CKAsset+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+Extension.swift"; sourceTree = "<group>"; };
+		FF263FDF27A6A69E003C4510 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FF347820279813BA0095B975 /* NLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLocation.swift; sourceTree = "<group>"; };
 		FF347822279817C20095B975 /* NProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NProfile.swift; sourceTree = "<group>"; };
 		FF347824279819940095B975 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				FF46BEFC2796DBC600EA907A /* NButton.swift */,
 				FF700003279C63F10021488D /* XDismissButton.swift */,
 				FF700001279C5A0F0021488D /* LogoView.swift */,
+				FF263FDF27A6A69E003C4510 /* LoadingView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				FF347823279817C20095B975 /* NProfile.swift in Sources */,
 				FFD0695D27A1D123003AFE2B /* ProfileViewModel.swift in Sources */,
 				FF09F0EE279AC93E00B1C891 /* CKAsset+Extension.swift in Sources */,
+				FF263FE027A6A69E003C4510 /* LoadingView.swift in Sources */,
 				FFE23418279995A20099A23F /* Constants.swift in Sources */,
 				FFD06950279F279A003AFE2B /* UIImage+Extension.swift in Sources */,
 				FF46BEF52796D6E000EA907A /* LocationsListItem.swift in Sources */,
